@@ -54,6 +54,3 @@ def run_save_wf_noCD(S, chi, g, h, tau, Nsteps, lam_func):
     H_params = (chi, g, h)
     _, psi_t = time_evolve_adiabatic(S, H_params, tau, Nsteps, lam_func)
     np.savetxt("../data/" + make_fname_noCD(S, chi, g, h, tau, order, Omega), psi_t)
-
-
-run_save_wf_univ(10, 1, 1, 0.01, 1, 3, 3.5, Nsteps, lam_func, dlam_func)
