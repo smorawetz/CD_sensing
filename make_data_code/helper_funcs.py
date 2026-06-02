@@ -98,5 +98,9 @@ def comp_AGP_coeffs(Delta, Omega, order):
     return opt_coeffs
 
 
-def make_fname(S, chi, g, h, tau, order, Omega):
+def make_fname_univ(S, chi, g, h, tau, order, Omega):
     return f"S{S}_chi{chi}_g{g}_h{h}_tau{tau}_order{order}_Omega{Omega}.txt"
+
+
+def make_fname_noCD(S, chi, g, h, tau):
+    return f"S{S}_chi{chi}_g{g}_h{h}_tau{tau}.txt"
