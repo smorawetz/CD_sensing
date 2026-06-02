@@ -1,7 +1,5 @@
 import numpy as np
-import matplotlib.pyplot as plt
 import scipy
-import quspin
 
 from helper_funcs import cons_ops, make_H, get_GS, fit_func
 

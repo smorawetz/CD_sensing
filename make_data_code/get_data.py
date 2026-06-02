@@ -1,7 +1,4 @@
 import numpy as np
-import matplotlib.pyplot as plt
-import scipy
-import quspin
 
 from time_evol import time_evolve_adiabatic, time_evolve_univ
 from helper_funcs import (
