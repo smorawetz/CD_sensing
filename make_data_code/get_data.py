@@ -29,7 +29,7 @@ univ_data = np.loadtxt("universal_data.txt")
 Deltas = univ_data[:, 1]
 
 
-def run_save_wf_univ(S, chi, g, h, tau, order, Omega, Nsteps, lam_func, dlam_func):
+def evol_wf_univ(S, chi, g, h, tau, order, Omega, Nsteps, lam_func, dlam_func):
     # compute lower end of window using optimal
     Delta = Deltas[order - 1] * Omega
     coeffs = comp_AGP_coeffs(Delta, Omega, order)
@@ -39,17 +39,11 @@ def run_save_wf_univ(S, chi, g, h, tau, order, Omega, Nsteps, lam_func, dlam_fun
     _, psi_t = time_evolve_univ(
         S, H_params, coeffs, order, tau, Nsteps, lam_func, dlam_func
     )
-    np.savetxt(
-        "data/" + make_fname_univ(S, chi, g, h, tau, Nsteps, order, Omega), psi_t
-    )
+    return psi_t[:, -1]
 
 
-def run_save_wf_noCD(S, chi, g, h, tau, Nsteps, lam_func):
-    # compute lower end of window using optimal
-    Delta = Deltas[order - 1] * Omega
-    coeffs = comp_AGP_coeffs(Delta, Omega, order)
-
+def evol_wf_noCD(S, chi, g, h, tau, Nsteps, lam_func):
     # get time-evolved state
     H_params = (chi, g, h)
     _, psi_t = time_evolve_adiabatic(S, H_params, tau, Nsteps, lam_func)
-    np.savetxt("data/" + make_fname_noCD(S, chi, g, h, tau, Nsteps), psi_t)
+    return psi_t[:, -1]
