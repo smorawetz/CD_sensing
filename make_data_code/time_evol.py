@@ -88,7 +88,6 @@ def time_evolve_adiabatic(S, H_params, tau, Nsteps, lam_func):
     for i in range(1, Nsteps):
         t_mid = tvals[i - 1] + dt / 2
         lam = lam_func(t_mid, tau)
-        dlam_dt = dlam_func(t_mid, tau)
 
         H = lam * (H1 + H3) + (1 - lam) * H2
         U = scipy.linalg.expm(-1j * dt * H)
