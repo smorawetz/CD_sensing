@@ -24,6 +24,7 @@ def universal_AGP(coeffs, order, H_gen, dH_gen_dlam):
 
     # transform back to original basis
     A_lam = evecs @ A_eig @ evecs.conj().T
+    A_lam = 0.5 * (A_lam + A_lam.conj().T)  # ensure Hermiticity
     return A_lam
 
 
