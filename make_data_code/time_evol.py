@@ -54,9 +54,6 @@ def time_evolve_univ(S, H_params, coeffs, order, tau, Nsteps, lam_func, dlam_fun
         H = lam * (H1 + H3) + (1 - lam) * H2
         dH = H1 + H3 - H2
 
-        # H = lam**2 * H3 + lam * H1 + (1 - lam) * H2
-        # dH = 2 * lam * H3 + H1 - H2
-
         A_lam = universal_AGP(coeffs, order, H, dH)
 
         Hcd = H + dlam_dt * A_lam

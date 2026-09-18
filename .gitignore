@@ -1,0 +1,6 @@
+*.pyc
+*.nb
+test*.ipynb
+
+data/*
+plots/*

@@ -1,32 +1,9 @@
 import numpy as np
 
 from time_evol import time_evolve_adiabatic, time_evolve_univ
-from helper_funcs import (
-    cons_ops,
-    comp_AGP_coeffs,
-    smooth_lam_func,
-    dsmooth_lam_func,
-    make_fname_univ,
-    make_fname_noCD,
-)
+from helper_funcs import comp_AGP_coeffs
 
-## define constants
-NTSTEPS = 1000
-
-S = None
-chi = None
-g = None
-h = None
-tau = None
-order = None
-Omega = None
-
-Nsteps = NTSTEPS
-lam_func = smooth_lam_func
-dlam_func = dsmooth_lam_func
-
-univ_data = np.loadtxt("universal_data.txt")
-Deltas = univ_data[:, 1]
+Deltas = np.loadtxt("universal_data.txt")[:, 1]
 
 
 def evol_wf_univ(S, chi, g, h, tau, order, Omega, Nsteps, lam_func, dlam_func):
