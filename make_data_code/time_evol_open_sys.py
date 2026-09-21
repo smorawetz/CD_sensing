@@ -63,8 +63,8 @@ def simulate_LMG_CD(
     Sz = piqs.jspin(N, "z")
     S = N / 2.0
 
-    H0 = -(chi / (2 * np.sqrt(S * (S + 1)))) * (Sz * Sz) - h * Sz
-    H1 = -g * Sx
+    H0 = -(chi / (2 * np.sqrt(S * (S + 1)))) * (Sx * Sx) - h * Sx
+    H1 = -g * Sz
     dH_dlambda = H0 - H1
 
     _, psi0 = H1.groundstate()
