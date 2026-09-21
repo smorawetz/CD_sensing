@@ -71,7 +71,7 @@ def simulate_LMG_CD(
     rho0 = psi0.proj()
 
     L_diss = piqs.Dicke(
-        N=N, collective_emission=Gamma / S, dephasing=gamma_el
+        N=N, collective_emission=Gamma / S, dephasing=gamma_el / 2
     ).lindbladian()
 
     def H_of_t(t):
